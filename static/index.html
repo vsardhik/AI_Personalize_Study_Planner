@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Personalized Study Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Add FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+    <!-- Add FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+</head>
+<body>
+    <h1 style="text-align:center; margin-top: 30px; font-size: 2.5rem; color: #2d3748; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; letter-spacing: 1px;">AI Personalized Study Planner</h1>
+    <div class="container">
+        <section class="upload-section">
+            <div class="upload-box" id="dropZone">
+                <img src="/static/upload.svg" alt="Upload" id="uploadIcon">
+                <p>Drag and drop your syllabus here or click to browse</p>
+                <p class="file-types">Supported formats: PDF, PNG, JPG. You can upload multiple syllabi for different subjects.</p>
+                <input type="file" id="fileInput" accept=".pdf,.png,.jpg,.jpeg" hidden multiple>
+            </div>
+            <div class="parameters">
+                <div class="input-group">
+                    <label for="days">Number of Days:</label>
+                    <input type="number" id="days" min="1" max="90" value="7">
+                </div>
+                <div class="input-group">
+                    <label for="hours">Hours per Day:</label>
+                    <input type="number" id="hours" min="1" max="12" value="4">
+                </div>
+                <div class="input-group">
+                    <label for="email">Email for Reminders:</label>
+                    <input type="email" id="email" placeholder="your@email.com">
+                </div>
+                <div class="input-group whatsapp-group">
+                    <label for="whatsapp">WhatsApp Number (India):</label>
+                    <div class="whatsapp-input-wrapper">
+                        <span class="country-code"><img src="https://flagcdn.com/16x12/in.png" alt="IN" class="flag-icon"> +91</span>
+                        <input type="text" id="whatsapp" maxlength="10" pattern="[0-9]{10}" placeholder="Enter your mobile number">
+                    </div>
+                </div>
+                <button id="generateBtn" disabled>Generate Plan</button>
+            </div>
+        </section>
+        <section class="chat-section">
+            <h2>AI Study Assistant</h2>
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Ask me anything about your study plan...">
+                    <button id="sendMessage">Send</button>
+                </div>
+            </div>
+        </section>
+        <section class="calendar-section">
+            <h2>Study Calendar</h2>
+            <div id="calendar"></div>
+        </section>
+        <section class="plan-details">
+            <h2>Your Study Plan</h2>
+            <div id="studyPlan"></div>
+            <button id="downloadPdf" class="download-button" style="display:none;">Download Study Plan as PDF</button>
+        </section>
+    </div>
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div>Processing...</div>
+    </div>
+    <input type="file" id="fileInput" style="display:none;" accept=".pdf,image/*">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html> 
