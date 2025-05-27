@@ -1,4 +1,4 @@
-# Study Plan Generator Chatbot
+# AI PERSONALIZE STUDY PLANNER
 
 A modern web application that helps students create personalized study plans from their syllabus. Upload your syllabus (PDF or image), specify your study duration and daily hours, and get an AI-generated study plan that takes into account topic complexity and optimal learning patterns.
 
